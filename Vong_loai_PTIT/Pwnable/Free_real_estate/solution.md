@@ -8,7 +8,7 @@ Description:
 
 Solution:
 ---
-Như cái tên đề bài thì đây là bài free điểm, nhưng mà chả ai làm :joy: Chạy thử xem nào :point_down:
+Như cái tên đề bài thì đây là bài free điểm, nhưng mà :joy: Chạy thử xem nào :point_down:
 
 ![](/Vong_loai_PTIT/Pwnable/Free_real_estate/1.PNG)
 
