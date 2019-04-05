@@ -10,7 +10,7 @@ Solution:
 ---
 Như cái tên đề bài thì đây là bài free điểm, nhưng mà chả ai làm :joy: Chạy thử xem nào :point_down:
 
-![1](https://user-images.githubusercontent.com/32799754/55638091-9d0aa980-57f0-11e9-9fbb-2826f8017850.PNG)
+![](/1.PNG)
 
 Xem ra có 1 chỗ nhập, decompile ra xem main nào:
 
@@ -59,4 +59,4 @@ python -c 'print "A"*0x18 + "\x39\x1b\x00\x00"' | nc 3.91.78.13 10004
 ```
 Flag thiếu chữ P mọi người tự thêm vào nhé:
 
-![image](https://user-images.githubusercontent.com/32799754/55639897-a564e380-57f4-11e9-92ac-f09eeae8a490.png)
+![](/2.png)
