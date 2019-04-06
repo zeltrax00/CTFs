@@ -145,10 +145,10 @@ Thôi lại xem tiếp nếu không gọi `sub_80485B6` thì `loc_80486DA` có c
 .text:08048729                 leave
 .text:0804872A                 retn
 ```
-Lần thứ 2 nhập thì không check số random, có lẽ nên khai thác vào chỗ này.
+Lần thứ 2 nhập thì không check số random, khai thác vào chỗ này xem.
 
-Bài này thì người ta cho sẵn chuỗi `"/bin/sh"` ở `0x8048890` rồi nên 
-gợi ý là sẽ return về `system("/bin/sh")`. Cơ mà lại không cho địa chỉ của `system`, và server bật `ASLR` nên cần phải tính thông qua địa chỉ của hàm nào đó đã cho.
+Bài này cho sẵn chuỗi `"/bin/sh"` ở `0x8048890` rồi nên 
+gợi ý là return về `system("/bin/sh")`. Cơ mà lại không cho địa chỉ của `system`, nên cần phải tính thông qua địa chỉ của hàm nào đó trong libc đã cho.
 
 Để ý trong suốt quá trình hàm `sub_8048676` này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó ở đây ?
 ```shell
@@ -176,7 +176,7 @@ root@kali:~# readelf -s /usr/lib32/libc-2.28.so | grep 1dad80
    905: 001dad80   152 OBJECT  GLOBAL DEFAULT   31 _IO_2_1_stdout_@@GLIBC_2.1 # <--- :))
 root@kali:~#
 ```
-Rồi thế là xong, chạy nhiều lần thì nó vẫn ra hàm đấy thôi. Còn lưu ý nữa là con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra system có thể bị sai,
+Rồi thế là biết 1 hàm trong libc, chạy nhiều lần thì nó vẫn ra hàm đấy thôi. Còn lưu ý nữa là con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra `system` có thể bị sai,
 vì kali của mình đang chạy `GCC 8.3.0`, chuyển qua ubuntu cho chắc:
 ```bash
 zeltrax@z-pc:~$ readelf -s /lib/i386-linux-gnu/libc.so.6 | grep stdout
