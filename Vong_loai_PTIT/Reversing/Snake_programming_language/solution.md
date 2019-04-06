@@ -9,8 +9,7 @@ Description:
 Solution:
 ---
 
-Từ cái mô tả đã thấy bài này nó khác thường rồi. Load IDA lên xem thì không thấy bóng dáng flag ở đâu. Mình nghĩ nó bị pack nên thử detect 
-xem là packer nào:
+Từ cái mô tả đã thấy bài này nó khác thường rồi. Load IDA lên xem thì không thấy bóng dáng flag ở đâu, cũng chẳng thấy xâu `Input username` lúc chạy chương trình. Không thấy dữ liệu thì chắc chắn là bị pack nên thử detect xem là packer nào:
 
 ![](/Vong_loai_PTIT/Reversing/Snake_programming_language/1.PNG)
 
