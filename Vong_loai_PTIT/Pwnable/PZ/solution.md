@@ -52,7 +52,7 @@ Xem hàm `sub_8048676` nào:
 
 ...
 
-.text:08048688                 mov     eax, offset unk_804A040; <--- Nhớ địa chỉ này không ??
+.text:08048688                 mov     eax, offset unk_804A040; <--- Biết địa chỉ này không? Xem hàm trước đó để biết nhé
 .text:0804868E                 mov     eax, [eax]
 .text:08048690                 mov     [ebp+var_C], eax; <--- Lấy số random lưu vào [ebp+var_C]
 .text:08048693                 sub     esp, 0Ch
