@@ -66,7 +66,7 @@ Xem hàm `sub_8048676` nào:
 .text:080486AF                 call    _printf
 .text:080486B4                 add     esp, 10h
 .text:080486B7                 sub     esp, 8
-.text:080486BA                 push    30h             ; nbytes <--- Lại cho nhập 0x30 bytes
+.text:080486BA                 push    30h             ; nbytes <--- Cho nhập 0x30 bytes
 .text:080486BC                 lea     eax, [ebp+buf]  ;        <--- Trong khi buffer chỉ có 0x1C bytes
 .text:080486BF                 push    eax             ; buf
 .text:080486C0                 call    sub_8048612     ;  <--- Hàm nhập và thay kí tự '\n' ở cuối chuỗi thành '\0'
@@ -150,7 +150,7 @@ Lần thứ 2 nhập thì không check số random, có lẽ nên khai thác và
 Bài này thì người ta cho sẵn chuỗi `"/bin/sh"` ở `0x8048890` rồi nên 
 gợi ý là sẽ return về `system("/bin/sh")`. Cơ mà lại không cho địa chỉ của `system`, và server bật `ASLR` nên cần phải tính thông qua địa chỉ của hàm nào đó đã cho.
 
-Để ý trong suốt quá trình hàm `sub_8048676` này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó mờ ám chăng ?
+Để ý trong suốt quá trình hàm `sub_8048676` này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó ở đây ?
 ```shell
 Breakpoint 1, 0x0804867a in ?? ()
 gdb-peda$ x/x $ebp-8
