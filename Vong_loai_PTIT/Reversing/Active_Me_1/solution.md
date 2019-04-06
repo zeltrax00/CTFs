@@ -72,3 +72,5 @@ int main()
 }
 ```
 Được key là: `3831FEB4-6F474E60`. Submit flag thôi: `PTITCTF{3831FEB4-6F474E60}`
+
+Còn ai muốn `sướng trước khổ sau` thì đặt breakpoint tại `strcmp(&v6, String)` rồi chạy debug IDA, sau đó vào &v6 mà nhặt ra từng chữ :grin:
