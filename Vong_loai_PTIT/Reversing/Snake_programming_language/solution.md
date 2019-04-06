@@ -14,8 +14,13 @@ xem là packer nào:
 
 ![](/Vong_loai_PTIT/Reversing/Snake_programming_language/1.PNG)
 
-Không phát hiện packer mà lại còn báo không phải file PE hợp lệ. Quay lại IDA xem kỹ hơn Strings window thì thấy rất nhiều chuỗi `Py_xxxx`, 
-`Python DLL` các kiểu. Mình đoán app này viết bằng python rồi dùng tool để convert sang PE File.
+Không phát hiện packer mà lại còn báo không phải file PE hợp lệ.
+
+Quay lại IDA xem kỹ hơn Strings window thì thấy rất nhiều chuỗi `Py_xxxx`, `Python DLL` các kiểu. Đặc biệt có dòng này:
+
+![](/Vong_loai_PTIT/Reversing/Snake_programming_language/2.PNG)
+
+Mình đoán app này viết bằng Python rồi dùng tool để convert sang PE File.
 
 Google 1 lúc thì tìm được [tool chuyển ngược lại](https://github.com/countercept/python-exe-unpacker):
 
