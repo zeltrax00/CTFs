@@ -51,7 +51,7 @@ Xem ra có 1 chỗ nhập, decompile ra xem main nào:
    0x080486e2 <+123>:	lea    esp,[ecx-0x4]
    0x080486e5 <+126>:	ret
 ```
-Tóm lại là từ `[ebp-0x24]` đến `[ebp-0xc]` có `0x18` bytes. Mà readin() lại cho nhập vào `0x32` bytes. Ăn thôi :yum:
+Tóm lại là từ `[ebp-0x24]` đến `[ebp-0xc]` có `0x18` bytes. Mà `readin` lại cho nhập vào `0x32` bytes. Ăn thôi :yum:
 
 > Gõ terminal đập phát chết luôn, khỏi cần code:
 ```bash
