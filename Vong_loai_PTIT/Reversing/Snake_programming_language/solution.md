@@ -15,7 +15,7 @@ Từ cái mô tả đã thấy bài này nó khác thường rồi. Load IDA lê
 
 Không phát hiện packer mà lại còn báo không phải file PE hợp lệ.
 
-Quay lại IDA xem kỹ hơn Strings window thì thấy rất nhiều chuỗi `Py_xxxx`, `Python DLL` các kiểu. Đặc biệt có dòng này:
+Quay lại IDA xem kỹ hơn `Strings window` thì thấy rất nhiều chuỗi `Py_xxxx`, `Python DLL` các kiểu. Đặc biệt có dòng này:
 
 ![](/Vong_loai_PTIT/Reversing/Snake_programming_language/2.PNG)
 
@@ -54,7 +54,7 @@ root@kali:~/python-exe-unpacker/unpacked/Snake.exe# ls
  pyimod03_importers                                 VCRUNTIME140.dll
 'pyi-windows-manifest-filename Test.exe.manifest'
 ```
-Sau khi xem xét mấy file trong này thì file Test có 1 điều thú zị :grin:
+Sau khi xem xét mấy file trong này thì file `Test` có 1 điều thú zị :grin:
 ```bash
 root@kali:~/python-exe-unpacker/unpacked/Snake.exe# cat Test
 �@svddlZed�Ze�e�dZdZxBedee��D]0e	e�e�
