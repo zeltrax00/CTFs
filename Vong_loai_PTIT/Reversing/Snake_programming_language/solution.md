@@ -12,7 +12,7 @@ Solution:
 Từ cái mô tả đã thấy bài này nó khác thường rồi. Load IDA lên xem thì không thấy bóng dáng flag ở đâu. Mình nghĩ nó bị pack nên thử detect 
 xem là packer nào:
 
-<img src = "/Vong_loai_PTIT/Reversing/Snake_programming_language/1.PNG" class="center">
+![](/Vong_loai_PTIT/Reversing/Snake_programming_language/1.PNG)
 
 Không phát hiện packer mà lại còn báo không phải file PE hợp lệ. Quay lại IDA xem kỹ hơn Strings window thì thấy rất nhiều chuỗi `Py_xxxx`, 
 `Python DLL` các kiểu. Mình đoán app này viết bằng python rồi dùng tool để convert sang PE File.
