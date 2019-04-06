@@ -20,7 +20,7 @@ You: ok girl
 root@kali:~#
 ```
 
-Con này không dùng `gdb` để xem `main` được, dùng `objdump` hay cái gì đó khác nhé.
+Con này đã bị stripped nên không dùng `gdb` để xem `main` được, dùng lệnh `objdump` hay cái gì đó khác nhé.
 > Radare2, IDA hay Binary Ninja...
 ```asm
 ...
