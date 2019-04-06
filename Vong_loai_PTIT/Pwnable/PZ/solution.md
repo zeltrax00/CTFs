@@ -147,10 +147,10 @@ Thôi lại xem tiếp nếu không gọi `sub_80485B6` thì `loc_80486DA` có c
 ```
 Lần thứ 2 nhập thì không check số random, có lẽ nên khai thác vào chỗ này.
 
-Bài này thì người ta cho sẵn chuỗi "/bin/sh" ở `0x8048890` rồi nên 
-gợi ý là sẽ return về system("/bin/sh"). Cơ mà lại không cho địa chỉ của sytem(), và server bật ASLR nên cần phải tính thông qua địa chỉ của hàm nào đó đã cho.
+Bài này thì người ta cho sẵn chuỗi `"/bin/sh"` ở `0x8048890` rồi nên 
+gợi ý là sẽ return về `system("/bin/sh")`. Cơ mà lại không cho địa chỉ của `system`, và server bật `ASLR` nên cần phải tính thông qua địa chỉ của hàm nào đó đã cho.
 
-Để ý trong suốt quá trình hàm sub_8048676 này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó mờ ám chăng ?
+Để ý trong suốt quá trình hàm `sub_8048676` này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó mờ ám chăng ?
 ```asm
 Breakpoint 1, 0x0804867a in ?? ()
 gdb-peda$ x/x $ebp-8
@@ -189,7 +189,7 @@ zeltrax@z-pc:~$ readelf -s /lib/i386-linux-gnu/libc.so.6 | grep system
   1510: 0003d200    55 FUNC    WEAK   DEFAULT   13 system@@GLIBC_2.0 # <--- Và đây
 zeltrax@z-pc:~$
 ```
-Bài này phải xử lí run-time để leak ra địa chỉ `[ebp-8]` nên phải code thôi:
+Bài này phải xử lí run-time để leak ra `DWORD PTR [ebp-8]` nên phải code thôi:
 ```python
 from pwn import *
 
