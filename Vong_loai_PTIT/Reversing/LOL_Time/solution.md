@@ -74,7 +74,7 @@ BYTE *__cdecl sub_4017BD(char a1)
 }
 ```
 
-Hàm `sub_401500` thì băm MD5 ký tự v3 vừa lấy ra ở key, và trả lại 4 ký tự cuối:
+Hàm `sub_401500` thì hash MD5 ký tự v3 vừa lấy ra ở key, và trả lại 4 ký tự cuối của chuỗi hash:
 ```C
 ...
   if ( CryptAcquireContextA(&phProv, 0, "Microsoft Base Cryptographic Provider v1.0", 1u, 0xF0000000) == 0 )
@@ -123,7 +123,7 @@ Hàm `sub_401500` thì băm MD5 ký tự v3 vừa lấy ra ở key, và trả l�
 }
 ```
 
-OK đã đủ thông tin. Mình sẽ băm MD5 tất cả các ký tự in được từ 32 đến 127 và tìm ra ký tự nào nằm trong key:
+OK đã đủ thông tin. Mình sẽ hash MD5 tất cả các ký tự in được từ 32 đến 127 và tìm ra ký tự nào nằm trong key:
 ```python
 import hashlib
 
