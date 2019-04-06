@@ -12,7 +12,7 @@ Như cái tên đề bài thì đây là bài free điểm, nhưng mà :joy: Ch�
 
 ![](/Vong_loai_PTIT/Pwnable/Free_real_estate/1.PNG)
 
-Xem ra có 1 chỗ nhập, decompile ra xem main nào:
+Xem ra có 1 chỗ nhập, disassembly ra xem main nào:
 
 ```asm
    0x08048671 <+10>:	push   ebp
