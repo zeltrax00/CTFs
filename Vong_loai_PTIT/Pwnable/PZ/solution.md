@@ -151,7 +151,7 @@ Bài này thì người ta cho sẵn chuỗi `"/bin/sh"` ở `0x8048890` rồi n
 gợi ý là sẽ return về `system("/bin/sh")`. Cơ mà lại không cho địa chỉ của `system`, và server bật `ASLR` nên cần phải tính thông qua địa chỉ của hàm nào đó đã cho.
 
 Để ý trong suốt quá trình hàm `sub_8048676` này làm việc không thấy đả động gì đến vị trí `[ebp-8]`, có gì đó mờ ám chăng ?
-```asm
+```shell
 Breakpoint 1, 0x0804867a in ?? ()
 gdb-peda$ x/x $ebp-8
 0xffffd370:	0xf7fadd80
