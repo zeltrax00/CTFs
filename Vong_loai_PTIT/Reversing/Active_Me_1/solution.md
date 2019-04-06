@@ -12,7 +12,6 @@ Mình thấy bài này dễ hơn bài LOL Time mà sao ít người làm, trong 
 Solution:
 ---
 
-
 Load vào `IDA`, mở tab `Strings window` và trace theo dòng chữ `Congratulation! Flag is Serial key` ta sẽ thấy có 1 hàm kiểm tra trước khi 
 gọi ra MessageBox này. Hàm này sau khi phân tích thì được giả mã như sau:
 ```C
