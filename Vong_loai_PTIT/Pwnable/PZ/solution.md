@@ -20,8 +20,7 @@ You: ok girl
 root@kali:~#
 ```
 
-Con này đã bị stripped nên không dùng `gdb` để xem `main` được, dùng lệnh `objdump` hay cái gì đó khác nhé.
-> Radare2, IDA hay Binary Ninja...
+Xem code hàm `main`:
 ```asm
 ...
 
@@ -34,7 +33,7 @@ push    eax             ; stream
 call    _setbuf
 add     esp, 10h
 call    sub_804872B
-call    sub_8048676; <---| Chỗ này nhé, còn lại thì bình thường rồi.
+call    sub_8048676; <---| Chỗ này lỗi nhé, còn lại thì bình thường rồi.
 mov     eax, 0
 lea     esp, [ebp-8]
 pop     ecx
